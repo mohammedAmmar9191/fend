@@ -1,6 +1,8 @@
 // Setup empty JS array to act as endpoint for all routes
 projectData = [];
 
+// require body parser
+const bodyParser = require('body-parser');
 // Require Express to run server and routes
 const express = require("express");
 
