@@ -1,5 +1,5 @@
 // Setup empty JS array to act as endpoint for all routes
-projectData = [];
+projectData = {};
 
 // require body parser
 const bodyParser = require('body-parser');
@@ -34,12 +34,11 @@ function listen() {
 
 //get route
 
-app.get("/getData", sendData);
+app.get("/getAll", sendData);
 
 //define callback fun.
 function sendData(req, res) {
   res.send(projectData);
-  projectData = [];
 }
 
 //post data
@@ -48,10 +47,8 @@ app.post("/add", addData);
 //define callback fun.
 function addData(req, res) {
   console.log(req.body);
-  newData = {
-    date: req.bdy.date,
-    temp: req.body.temp,
-    content: req.body.content,
-  };
-  projectData.push(newData);
+  projectData['temp'] = req.body.temp;
+  projectData['date'] = req.body.date;
+  projectData['content'] = req.body.content;
+  res.send(projectData);
 }
