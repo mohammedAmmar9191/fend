@@ -25,3 +25,8 @@ const port =8080;
 
 // Run the server
 const server = app.listen(port, listen);
+
+// listen function
+function listen(){
+    console.log('server works!')
+}
